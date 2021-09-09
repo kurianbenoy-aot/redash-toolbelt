@@ -206,14 +206,13 @@ def import_queries(orig_client, dest_client):
                 queries_that_depend_on_queries.append(query)
                 already_delayed = True
                 break
-        
+
         # Wait to import this query until all others have been imported
         if already_delayed:
             continue
 
         def import_query_subroutine(query):
             origin_id = query["id"]
-            
 
             data_source_id = DATA_SOURCES.get(query["data_source_id"])
 
